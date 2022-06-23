@@ -41,7 +41,7 @@ def deploy_box():
     print(proxy_box.retrieve())
 
     # Upgrade
-    box_v2 = BoxV2.deploy({"from": account})
+    box_v2 = BoxV2.deploy({"from": account}, publish_source=True)
     print("V2 contract deploy at: {}".format(box_v2.address))
     upgraded_transaction = upgrade_transaction(
         account, proxy, box_v2.address, proxy_admin
